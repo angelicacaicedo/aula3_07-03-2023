@@ -1,0 +1,27 @@
+int main()
+{
+    int idade1, idade2, idade3, idade4, somaIdade;
+    float somaPreços, p1, p2, p3, p4, p5;
+    char letra;
+    
+    printf("digite uma letra para escolher a opçao: \n");
+    printf("i - para digitar idades\n");
+    printf("p - para digitar preços\n");
+    scanf("%c", &letra);
+    
+    if (letra == 'i'){
+        printf("Digite 4 idades\n");
+        scanf("%d %d %d %d", &idade1, &idade2, &idade3, &idade4);
+        somaIdade = (idade1+idade2+idade3+idade4)/4.0;
+    } else{
+        printf("Digite 3 preços\n");
+        scanf("%f %f %f %f %f", &p1, &p2, &p3, &p4, &p5);
+        somaPreços = (p1+p2+p3+p4+p5)/5.0;
+    }
+    /*Leiam 4 idades e 5 preços*/
+    
+    printf("%2.d", somaIdade);
+    printf("%2.f", somaPreços);
+   
+    return 0;
+}
