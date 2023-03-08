@@ -25,3 +25,42 @@ int main()
    
     return 0;
 }
+
+#include <iostream>
+int main()
+{
+    int idade1, idade2, idade3, idade4, somaIdade, lab1, lab2, lab3, lab4, lab5, lab6, lab7, somaLab;
+    float somaPreços, p1, p2, p3, p4, p5;
+    char letra;
+    
+    printf("digite uma letra para escolher a opçao:\n");
+    
+    printf("i o I - para digitar idades\n");
+    printf("p o P - para digitar preços\n");
+    printf("l o L- para digitar o número de alunos nos laboratórios\n");
+    scanf("%c", &letra);
+    
+    if (letra == 'i'|| letra == 'I' ){
+        printf("Digite 4 idades\n");
+        scanf("%d %d %d %d", &idade1, &idade2, &idade3, &idade4);
+        somaIdade = (idade1+idade2+idade3+idade4)/4.0;
+    } else if (letra == 'p'|| letra == 'P'){
+        printf("Digite 5 preços\n");
+        scanf("%f %f %f %f %f", &p1, &p2, &p3, &p4, &p5);
+        somaPreços = (p1+p2+p3+p4+p5)/5.0;
+    }else if (letra == 'l' || letra == 'L'){
+        printf("Digite o número de alunos nos laboratórios \n");
+        scanf("%d %d %d %d %d %d %d", &lab1, &lab2, &lab3, &lab4, &lab5, &lab6, &lab7);
+        somaLab = (lab1+lab2+lab3+lab4+lab5+lab6+lab7)/7.0;
+        
+    }else {
+        printf("O comando digitado no é valido, precione 'enter' y vuelva a empezar");
+    }
+    /*adicionar a leitura de numeros de almunos de 7 laboratorios, imrprimir a media. Leiam 4 idades e 5 preços*/
+    
+    printf("%2.d", somaIdade);
+    printf("%2.f", somaPreços);
+    printf("%2.d", somaLab);
+   
+    return 0;
+}
