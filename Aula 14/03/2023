@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float ValorRecebido, aliquota, dedutivel, imposto;
+    printf("Digite o valor por mès para a aliquota do IR\n");
+    scanf("%f", &ValorRecebido);
+    
+    if(ValorRecebido <1903.99){
+        aliquota = 0;
+        
+    }else if(ValorRecebido < 2826.66){
+        //If(ValorRecebido >= 1903.99 && valor recibido < 2826.66)
+        aliquota = 7.5;
+        dedutivel = 142.8;
+    }else if(ValorRecebido <3751.05){
+        aliquota = 15;
+        dedutivel = 354.8;
+    }else {
+        aliquota = 22.5;
+        dedutivel = 636.13;
+    }
+    printf ("Seu imposto serà calculado com aliquota de %.2f%% e terá deduçao de %.2f\n",
+    aliquota, dedutivel);
+    imposto = (ValorRecebido - dedutivel)*(aliquota/100);
+    printf("Seu imposto serà de: R$ %.2F\n", imposto);
+    
+    return 0;
+}
