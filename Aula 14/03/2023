@@ -21,11 +21,14 @@ int main()
     }else if(valoRecebido < 4664.68){
         aliquota = 22.5;
         dedutivel = 636.13;
+     else{ 
+         aliquota = 27.5
+         dedutivel =  869.36
     }
     printf ("Seu imposto serà calculado com aliquota de %.2f%% e terá deduçao de %.2f\n",
     aliquota, dedutivel);
     imposto = (ValorRecebido - dedutivel)*(aliquota/100);
-    printf("Seu imposto serà de: R$ %.2F\n", imposto);
+    printf("Seu imposto serà de: R$ %.2F\n", (imposto*12));
     
     return 0;
 }
