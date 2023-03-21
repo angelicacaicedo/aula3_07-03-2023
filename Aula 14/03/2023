@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-
+//sqlcase, para poner en un espacio entre las varibles,
 int main()
 {
     float ValorRecebido, aliquota, dedutivel, imposto;
@@ -10,7 +10,7 @@ int main()
     
     if(ValorRecebido <1903.99){
         aliquota = 0;
-        
+        dedutivel = 0;
     }else if(ValorRecebido < 2826.66){
         //If(ValorRecebido >= 1903.99 && valor recibido < 2826.66)
         aliquota = 7.5;
@@ -18,7 +18,7 @@ int main()
     }else if(ValorRecebido <3751.05){
         aliquota = 15;
         dedutivel = 354.8;
-    }else {
+    }else if(valoRecebido < 4664.68){
         aliquota = 22.5;
         dedutivel = 636.13;
     }
