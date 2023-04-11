@@ -1,0 +1,35 @@
+int main()
+{
+      double salary,value,TOTAL;
+      const char name;
+      
+       if (name == "JOAO"){
+        scanf("%c, %lf, %lf", &name, &salary, &value);
+        
+        TOTAL = (salary = 500.00 + value = 1230.30)*.15;
+        
+        printf("TOTAL = R$ %.2lf\n",TOTAL);
+           
+       } else if (name = "PEDRO"){
+        
+        scanf("%c", &name);
+        
+        TOTAL = (salary = 700.00 + value = 0.00)*.15;
+        
+        printf("TOTAL = R$ %.2lf\n",TOTAL); 
+        
+       }else if (name == "MANGOJATA") {
+           
+           scanf("%c", &name);
+        
+        TOTAL = (salary = 1700.00 + value = 1230.50)*.15;
+        
+        printf("TOTAL = R$ %.2lf\n",TOTAL); 
+        
+       }else{
+           printf("error");
+       }
+        
+     
+      return 0; 
+}
