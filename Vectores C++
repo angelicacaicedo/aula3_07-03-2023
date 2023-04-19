@@ -28,3 +28,34 @@ int main()
 }
     return 0;
 }
+
+
+
+
+
+#include <stdio.h>
+using namespace std;
+#define TAM 18
+int main()
+{
+    int pressao[TAM], i, abaixo = 0, arriba =0;
+    float media;
+    for(i=0; i<TAM; i++){
+        printf("Digite quantas libras tem o pneu %d\n", i+1);
+        scanf("%d", &pressao[i]);
+    }
+    for(i=0; i<TAM; i++){
+        printf(" %d ", pressao[i]);
+        if(pressao[i]<= 100){
+            abaixo++;
+        }else{
+            arriba++;
+        }
+    }
+    printf("\n%d Pressão abaixo e %d Pressão arriba\n", abaixo, arriba);
+    printf("media\n");
+    
+    media = (pressao + pressao[i]) / 18;
+    
+    return 0;
+}
