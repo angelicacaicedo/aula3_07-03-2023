@@ -1,0 +1,30 @@
+#include <stdio.h>
+using namespace std;
+#define TAM 4
+int main()
+{
+    int idades[TAM], i, j, auxiliar;
+    for(i=0; i<TAM; i++){
+        printf("Digite uma idade:\n");
+        scanf("%d", &idades[i]);
+    }
+    printf("Desordenado\n");
+    for(i=0; i<TAM; i++){
+        printf(" %d ", idades[i]);
+    }
+    for(i=0; i<TAM; i++){
+        for(j=i+1; j<TAM; j++){
+            if(idades[i]>idades[j]){
+                auxiliar=idades[i];
+                idades[i]=idades[j];
+                idades[j]=auxiliar;
+            }
+            
+        }
+    }
+    printf("\nOrdenado\n");
+    for(i=0; i<TAM; i++){
+        printf(" %d ", idades[i]);
+}
+    return 0;
+}
