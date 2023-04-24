@@ -1,0 +1,30 @@
+#include <stdio.h>
+// faça um algoritmo que recibe o numero equivalente a 4 quadrilhões
+int main()
+{
+    long int i=400000000000;
+    scanf ("%ld", &i);
+    printf("%ld", i);
+
+    return 0;
+}
+
+
+
+
+
+//Bibliotecas... #include(math.h) matematicas//
+//bits/std++.h... exporta todos los codigos y no da errores en los codigos.//
+// int main(int argc(busca la cantidad de argumentos ), char*argv(coge todos los caracteres)[])//
+//diferencia entre variable y puntero (char*argv), en una variable se puede almacenar porque es un  espacio reservado en la memoria//
+// en el puntero, el solo direciona la variable.//
+//using cred...
+/*int main(){
+    int intero;
+    dioble longf;
+    char caracteres;
+    
+    printf("%d Hello %f World %c", intero, longf, caracteres);
+
+    return 0;
+}*/
