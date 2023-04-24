@@ -1,8 +1,8 @@
 #include <stdio.h>
-// faça um algoritmo que recibe o numero equivalente a 4 quadrilhões
+// faça um algoritmo que recibe o numero equivalente a 4 quadrilhões 400000000000;
 int main()
 {
-    long int i=400000000000;
+    long int i;
     scanf ("%ld", &i);
     printf("%ld", i);
 
