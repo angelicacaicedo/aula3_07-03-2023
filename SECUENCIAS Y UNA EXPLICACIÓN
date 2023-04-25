@@ -35,3 +35,84 @@ int main()
 
     return 0;
 }*/
+
+
+
+
+
+
+#include <iostream>
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
+//Leia duas datas, separando dd/mm/aaaa
+//diga a quantidade de horas existentes entre duas datas.
+int main()
+{
+    int dia1, mes1, ano1;
+    int dia2, mes2, ano2;
+
+    cout << "Digite a primeira data no formato dd/mm/aaaa: ";
+    cin >> dia1 >> mes1 >> ano1;
+
+    cout << "Digite a segunda data no formato dd/mm/aaaa: ";
+    cin >> dia2 >> mes2 >> ano2;
+
+    cout << "A primeira data digitada foi: " << dia1 << "/" << mes1 << "/" << ano1 << endl;
+    cout << "A segunda data digitada foi: " << dia2 << "/" << mes2 << "/" << ano2 << endl;
+
+    system_clock::time_point start = system_clock::now();
+    system_clock::time_point end = system_clock::now() + hours(24);
+
+    duration<double> diff = duration_cast<duration<double>>(end - start);
+    double hours = diff.count() / 3600.0;
+
+    std::cout << "Diferença em horas: " << hours << std::endl;
+
+    return 0;
+}
+
+
+
+
+int main()
+{
+    int dia1, mes1, ano1, data1;
+    int dia2, mes2, ano2, data2;
+    
+    printf("Digite a primeira data no formato dd/mm/aaaa: \n");
+    scanf ("%d/%d/%d", &dia1, &mes1, &ano1);
+    
+    printf("Digite a segunda data no formato dd/mm/aaaa: \n");
+    scanf ("%d/%d/%d", &dia2, &mes2, &ano2);
+    
+    data1 = dia1, mes1, ano1;
+    data2 = dia2, mes2, ano2;
+    
+    printf("%d A primeira data digitada foi: ", data1);
+    printf("%d A segunda data digitada foi: ", data2);
+
+    return 0;
+}
+
+
+
+
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int data1[3], data2[3];
+    long long int horas1, horas2, resultado;
+    printf("digite duas dtas, perimero a masi antiga dd/mm/aaaa\n");
+    scanf("%d/%d/%d", &data1[0], &data1[1], &data1[2]);
+    scanf("%d/%d/%d", &data2[0], &data2[1], &data2 [2]);
+    horas1 = ((data1[0]*24) = (data1[1]*30*24) + (data1[2]*365*24));
+    horas2 = ((data1[0]*24) = (data1[1]*30*24) + (data1[2]*365*24));
+
+    return 0;
+}
