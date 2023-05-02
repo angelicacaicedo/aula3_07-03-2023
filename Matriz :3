@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#define linha 4
+#define coluna 3
+
+int main()
+{
+    int l, c, i, j;
+    int mesas[linha][coluna];
+
+
+   for(l=0;l<linha;l++){
+        printf("\nLinha %i\n", l+1);
+        for(c=0;c<coluna;c++){
+            printf("coluna %i: ", c+1);
+            scanf("%d", &mesas[l][c]);
+        }
+   }
+   printf("\nMatriz gerada\n");
+   for(i=0;i<linha;i++){
+       for(j=0;j<coluna;j++){
+           printf("%d\t", mesas[i][j]);
+       }
+       printf("\n");
+   }
+   return 0;
+}
+//Imprime los numeros de la matriz generada, los numeros se imprimen en el orden donde yo lo digite
