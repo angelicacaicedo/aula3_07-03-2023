@@ -70,3 +70,67 @@ int main()
 
    return 0;
 }
+
+
+LEE LA MATRIZ Y LA POSICIÓN DONDE SE ENCUENTRA EL MAYOR Y EL MENOR
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#define linha 4
+#define coluna 4
+
+int main()
+{
+    int l, c, i, j;
+    int mesas[linha][coluna];
+    int menor, mayor, maiori=0, menoiri=0, maiorj=0, menoirj=0;
+
+
+   for(l=0;l<linha;l++){
+        printf("\nLinha %i\n", l+1);
+        for(c=0;c<coluna;c++){
+            printf("coluna %i: ", c+1);
+            scanf("%d", &mesas[l][c]);
+        }
+   }
+   printf("\nMatriz gerada\n");
+   for(i=0;i<linha;i++){
+       for(j=0;j<coluna;j++){
+           printf("%d\t", mesas[i][j]);
+       }
+       printf("\n");
+   }
+   printf("\nDiagonal principal: ");
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
+            if(i==j){
+                printf("%8d ", mesas[i][j]);
+            }else{
+                printf("\t");
+            }
+        }
+    }
+    mayor = mesas[0][0];
+    menor = mesas[0][0];
+    for(i=0; i<linha; i++) {
+        for (j=0; j<coluna; j++) {
+            if (mesas[i][j] > mayor){ 
+                mayor = mesas[i][j];
+                maiori = i;
+                maiorj = j;
+            }
+            if (mesas[i][j] < menor){ 
+                menor = mesas[i][j];
+                menoiri = i;
+                menoirj = j;
+            }
+        }
+    }
+    printf("\nMayor: %d mesas[%d][%d]\n", mayor, maiori, maiorj);
+    printf("Menor: %d mesas[%d][%d]\n", menor, menoiri, menoirj);
+    
+    return 0;
+
+}
+
