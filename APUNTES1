@@ -1,0 +1,15 @@
+//Faça um algoritmo que defina faixas de crédito de acordo com:
+//Faixa etária 1: Pessoas com idade entre 18 e 25 anos podem assumir finaniciamiento de até 50mil.
+//Faixa etária 2:Pessoas com idade entre 25 e 40 anos podem assumir finaniciamiento de até 400mil.
+//Faixa etária 3:Pessoas com idade entre 40 e 60 anos podem assumir finaniciamiento de até 800mil.
+//Faixa etária 4:Pessoas com idade acima de 60 anos podem assumir finaniciamiento de até 150mil.
+
+//Caso a pessoa seja solteira poderá assumir 80% do valor associado a sua faixa etária.
+//Caso a pessoa esteja desempregada poderá assumir até 20% do valor associado a sua faixa etária.
+//Para as faixas etária 1 e 4, considerar um fator de risco maior para os casos de 8% acima das demais.
+//Caso a pessoa tenha outro finaniciamiento você deberá considerar 70% do valor aprovado de acordo com os criterios anteriores.
+//Se o finaniciamiento for para veículo automotor considerar juros de 20% ao ano para veículos de até 5 anos de uso, 
+//Para veículos de até 15 anos considerar 25%
+//veículos mais antigos considerar 30%, caso seja para moradia considerar 9% ao ano.
+//Mostrar ao final, quanto foi concedido para financiar, qual a taxa de juros aplicada, qual é o valor final de acordo com o prazo de finaniciamiento.
+//E qual é o valor da parcela resultante. 
