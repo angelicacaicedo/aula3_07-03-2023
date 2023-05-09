@@ -134,3 +134,26 @@ int main()
 
 }
 
+IMPRIME LA MITA, LA DERECHA O LA IZQUIERDA DE LA MATRIZ, SOLO CONDICIONADO EL IF. 
+
+#include <stdio.h>
+
+int main()
+{
+    int matriz[5][5]={11,20,30,12,10,9,8,7,6,5,4,11,20,30,12,10,9,8,7,6,5,4,21,19,13};
+    int l, c, x=5/2;
+    for(l=0; l<5; l++){
+        for(c=0; c<5; c++){
+            if(c==x || l==2 || c==2){
+                printf("%8d", matriz[l][c]);
+            }else {
+                printf("\t");
+            }
+        }
+        printf("\t|\n");
+    }
+
+    return 0;
+}
+
+
