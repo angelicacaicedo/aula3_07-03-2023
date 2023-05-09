@@ -13,3 +13,93 @@
 //veículos mais antigos considerar 30%, caso seja para moradia considerar 9% ao ano.
 //Mostrar ao final, quanto foi concedido para financiar, qual a taxa de juros aplicada, qual é o valor final de acordo com o prazo de finaniciamiento.
 //E qual é o valor da parcela resultante. 
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+int idade, valor_financiamento, valor_maximo;
+
+int estado_civil, situacao_profissional, finalidade_financiamento;
+
+float taxa_juros, valor_final, parcela;
+
+printf("Digite a idade\n");
+scanf("%d", &idade);
+
+if (idade >= 18 && idade <= 25) {
+    valor_maximo = 50000;
+    taxa_juros = 0.08;
+} else if (idade > 25 && idade <= 40) {
+    valor_maximo = 400000;
+    taxa_juros = 0.06;
+} else if (idade > 40 && idade <= 60) {
+    valor_maximo = 800000;
+    taxa_juros = 0.04;
+} else if (idade > 60) {
+    valor_maximo = 150000;
+    taxa_juros = 0.08;
+} else {
+    printf("Idade inválida.\n");
+    return 0;
+}
+
+printf("Digite o estado civil (1- solteiro ou 2- casado):\n ");
+scanf( "%d", &estado_civil);
+
+if (estado_civil == 1) {
+    valor_maximo *= 0.8;
+}
+
+printf("Digite a situação profissional (empregado ou desempregado):\n ");
+scanf( "%c", &situacao_profissional);
+
+if (situacao_profissional = "desempregado") {
+    valor_maximo *= 0.2;
+}
+
+printf("Digite a finalidade do financiamento (veículo ou moradia):\n ");
+scanf( "%c", &finalidade_financiamento);
+
+if (finalidade_financiamento = "veículo") {
+    int idade_veiculo;
+    printf("Digite a idade do veículo:\n ");
+    scanf( "%d", &idade_veiculo);
+
+    if (idade_veiculo <= 5) {
+        taxa_juros += 0.2;
+    } else if (idade_veiculo <= 15) {
+        taxa_juros += 0.25;
+    } else {
+        taxa_juros += 0.3;
+    }
+} else if (finalidade_financiamento = "moradia") {
+    taxa_juros += 0.09;
+} else {
+    printf("Finalidade inválida.\t");
+    return 0;
+}
+
+printf("Digite o valor do financiamento: ");
+scanf( "%d", &valor_financiamento);
+
+if (valor_financiamento > valor_maximo) {
+    printf("Valor de financiamento excedeu o máximo permitido.\t");
+    return 0;
+}
+
+valor_final = valor_financiamento * (1 + taxa_juros);
+printf("Valor final: %f", valor_final);
+
+printf("Digite o prazo de financiamento (em meses): ");
+int prazo;
+scanf( "%d", &prazo);
+
+parcela = valor_final / prazo;
+printf("Valor da parcela: %f", parcela);
+
+return 0;
+}
