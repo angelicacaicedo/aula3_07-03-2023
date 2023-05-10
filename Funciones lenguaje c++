@@ -15,3 +15,53 @@ int main(){
     printf("%lf + %lf = %lf",l, x, resposta);
     return 0;
 }
+
+
+
+
+
+EL USUARIO PUEDE ESCOGER LA OPCION EN LA QUE VA A SER RESULETA SU OPRECAIÓN. 
+#include <stdio.h>
+
+double soma(double v1, double v2){
+    double x = v1 + v2;
+    return x;
+}
+
+double multip (double v1, double y){
+    return v1 * y;
+}
+
+double divisao (double v1, double y){
+    return v1 / y;
+}
+
+double subtracao (double v1, double y){
+    return v1 - y;
+}
+
+int main()
+{
+    int op; 
+    double n1, n2;
+    printf("Digite um número: \n");
+    scanf("%lf", &n1);
+    printf("Digite um número: \n");
+    scanf("%lf", &n2);
+    printf("Escoge una opción: digite 1 para suma, 2 para sustración, 3 para división e 4 para multiplicación:");
+    scanf("%d", &op);
+    
+    if (op == 1){
+        printf ("%.2lf", soma(n1, n2));
+    } else if (op == 2) {
+        printf("%.2lf", subtracao(n1, n2));
+    } else if (op == 3) {
+        printf("%.2lf", divisao(n1, n2));
+    } else if (op == 4) {
+        printf("%.2lf", multip(n1, n2));
+    } else {
+        printf("Inválido");
+    }
+
+    return 0;
+}
