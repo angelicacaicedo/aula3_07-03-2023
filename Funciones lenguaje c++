@@ -1,0 +1,17 @@
+#include <iostream>
+
+double soma(duble v1, double v2){
+    double x = v1 + v2;
+    return x;
+}
+
+int main(){
+    double l, x, resposta;
+    printf("Digite um valor: ");
+    scanf("%lf", &l);
+    printf("Digite outo valor ");
+    scanf("%lf", &x);
+    resposta = soma(l, x);
+    printf("%lf + %lf = %lf",l, x, resposta);
+    return 0;
+}
