@@ -16,3 +16,40 @@ int main()
     }
     return 0;
 }
+
+
+//Faça um algoritmo que esteja em um laço de repetiçao infinito 
+//que leia idades e diga a media de idades ao final pare quando o usuário digitar uma idade acima de 200.
+//mas antes de parar verifique com o usuario se é para parar mesmo, desconsiderar a idade acima de 200 na media :)
+
+#include <iostream>
+
+int main() {
+    int idade, soma = 0, quantidade = 0;
+    char resposta;
+    float media;
+
+    while (true) {
+        printf("Digite a idade: ");
+        scanf("%d", &idade);
+
+        if (idade > 200) {
+            printf("Idade inválida! Deseja parar digita a letra 'p' \n");
+            scanf("%c", &resposta);
+
+            if (resposta == 'p' || resposta == 'P') {
+                break;
+            }
+        } else {
+            soma += idade;
+            quantidade++;
+        }
+    }
+    if (quantidade > 0) {
+        media = (soma) / quantidade; 
+        printf("A média de idades é: %f \n", media);
+    } else {
+        printf("Nenhuma idade válida foi digitada.");
+    }
+    return 0;
+}
