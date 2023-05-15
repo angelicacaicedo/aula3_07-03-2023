@@ -1,1 +1,18 @@
-1
+//Faça um algoritmo que esteja em um laço de repetiçao infinito con While e pare quando o usuário digitar 9999 em uma variável.//
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x;
+    while (1){
+        scanf("%d",  &x);
+        if(x == 9999){
+            break;
+        }
+        printf("teste");
+    }
+    return 0;
+}
