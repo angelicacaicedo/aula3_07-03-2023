@@ -53,3 +53,35 @@ int main() {
     }
     return 0;
 }
+
+Outra forma de hacer el mism codigo, pero mas corto (creo).
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double media, idade, soma = 0;
+    int contador = 0;
+    while (1){
+        printf("Digita a idade: ");
+        scanf("%lf", &idade);
+        if(idade > 200){
+            char op;
+            printf("Deseja realmente parar? [S/N]");
+            scanf(" %c", &op);
+            if(op == 'S' || op == 's'){
+                break;
+            }
+            printf("Ok, continuando\n");
+        }else {
+        soma = soma + idade;
+        contador ++;
+    }
+    }
+    media = soma/contador;
+    printf("A média das idades é %lf", media);
+
+    return 0;
+}
