@@ -59,3 +59,43 @@ int main()
     
     return 0;
 }
+
+
+
+Faça im algoritmo que leia do usuário a quantidde de colunas de um vetor.
+posteriormente faça um laço de reperiçao que leia os números deste vetor.
+Ao final diga qual a moda se existir. 
+
+#include <stdio.h>
+
+int main()
+{
+    int q, i, moda, qtdeModa, temporario;
+    printf("Digite um valor de tamanho do vetor: ");
+    scanf("%d", &q);
+    if(q<1){
+        printf("Escreveu um número menor que 0 \n");
+        return 0;
+    }
+    int vetor[q];
+    for(i=0; i<q; i++){
+        printf("Digite um valor: ");
+        scanf("%d", &vetor[i]);
+    }
+    for(i=0; i<q; i++){
+        for(int j=0; j<q; j++){
+            if(vetor[i] == vetor[j]){
+                temporario++;
+            }
+        }
+        if(qtdeModa < temporario){
+            qtdeModa = temporario;
+            moda = vetor[i];
+        }
+        temporario = 0;
+    }
+    printf("A moda é %d e se repete %d\n", moda, qtdeModa);
+    
+
+    return 0;
+}
