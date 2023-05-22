@@ -103,3 +103,13 @@ printf("Valor da parcela: %f", parcela);
 
 return 0;
 }
+
+
+AULA 22/05/2023
+
+REPASAR:
+FOR
+WHILE
+DO WHILE.
+VECTORES
+MATRIZES
