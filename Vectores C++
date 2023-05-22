@@ -99,3 +99,55 @@ int main()
 
     return 0;
 }
+
+
+ESTE ES EL MISMO ALGORITMO DE ARRIBA PERO DE UNA FORMA MÁS AVANZADA. 
+
+#include <iostream>
+#include <vector>
+#include <map>
+
+using namespace std;
+
+int main() {
+    int quantidade_colunas;
+
+    // Lê a quantidade de colunas do vetor
+    printf("Digite a quantidade de colunas do vetor: \n ");
+    scanf("%d", &quantidade_colunas);
+
+    vector < int > vetor;
+
+    // Lê os números do vetor
+    for (int i = 0; i < quantidade_colunas; i++) {
+        int numero;
+        printf("Digite o número da coluna: \n ");
+        scanf("%d", &numero);
+        vetor.push_back(numero);
+    }
+
+    // Conta a ocorrência de cada número
+    map < int, int > contagem_numeros;
+    for (int numero : vetor) {
+        contagem_numeros[numero]++;
+    }
+
+    // Encontra a moda
+    int moda = 0;
+    int max_frequencia = 0;
+    for (const auto& par : contagem_numeros) {
+        if (par.second > max_frequencia) {
+            moda = par.first;
+            max_frequencia = par.second;
+        }
+    }
+
+    // Verifica se há moda
+    if (max_frequencia > 1) {
+        printf("A moda é: %d \n", moda);
+    } else {
+        printf("Não há moda no vetor.\n");
+    }
+
+    return 0;
+}
