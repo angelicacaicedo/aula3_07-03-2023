@@ -46,80 +46,105 @@ int main() {
 JUEGO DE LA VELHA.
 
 #include <iostream>
+using namespace std;
+// Función para imprimir el tablero de juego
+void imprimirTablero(char tablero[3][3]) {
+    printf("Tablero de juego:\n");
+ 
+        for(int r = 0 ; r <3 ; r ++){
+        printf(" %c | ", (tablero [r][0]));
+        printf(" %c | ", (tablero [r][1]));
+        printf(" %c \n",(tablero [r][2]));
 
-// Função para imprimir o tabuleiro
-void imprimirTabuleiro(char tabuleiro[3][3]) {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            std::cout << tabuleiro[i][j] << " ";
+        if(r!=2){
+            printf("___ ___ ___\n");
         }
-        std::cout << std::endl;
-    }
-}
-
-// Função para verificar se há um vencedor
-char verificarVencedor(char tabuleiro[3][3]) {
-    // Verificar linhas
-    for (int i = 0; i < 3; i++) {
-        if (tabuleiro[i][0] != ' ' && tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]) {
-            return tabuleiro[i][0];
         }
     }
 
-    // Verificar colunas
+
+// Función para verificar si hay un ganador
+char verificarGanador(char tablero[3][3]) {
+    // Verificar filas
+    for (int i = 0; i < 3; i++) {
+        if (tablero[i][0] != ' ' && tablero[i][0] == tablero[i][1] && tablero[i][1] == tablero[i][2]) {
+            return tablero[i][0];
+        }
+    }
+
+    // Verificar columnas
     for (int j = 0; j < 3; j++) {
-        if (tabuleiro[0][j] != ' ' && tabuleiro[0][j] == tabuleiro[1][j] && tabuleiro[1][j] == tabuleiro[2][j]) {
-            return tabuleiro[0][j];
+        if (tablero[0][j] != ' ' && tablero[0][j] == tablero[1][j] && tablero[1][j] == tablero[2][j]) {
+            return tablero[0][j];
         }
     }
 
-    // Verificar diagonais
-    if (tabuleiro[0][0] != ' ' && tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
-        return tabuleiro[0][0];
+    // Verificar diagonales
+    if (tablero[0][0] != ' ' && tablero[0][0] == tablero[1][1] && tablero[1][1] == tablero[2][2]) {
+        return tablero[0][0];
     }
-    if (tabuleiro[0][2] != ' ' && tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]) {
-        return tabuleiro[0][2];
+    if (tablero[0][2] != ' ' && tablero[0][2] == tablero[1][1] && tablero[1][1] == tablero[2][0]) {
+        return tablero[0][2];
     }
 
-    // Não há um vencedor
+    // No hay ganador
     return ' ';
 }
 
 int main() {
-    char tabuleiro[3][3] = { { ' ', ' ', ' ' },
-                             { ' ', ' ', ' ' },
-                             { ' ', ' ', ' ' } };
-    char jogadorAtual = 'X';
-    int linha, coluna;
+    char tablero[3][3] = { { ' ', ' ', ' ' },
+                           { ' ', ' ', ' ' },
+                           { ' ', ' ', ' ' } };
+    char jugadorActual = 'X';
+    int fila, columna;
 
     while (true) {
-        imprimirTabuleiro(tabuleiro);
+        imprimirTablero(tablero);
 
-        // Solicitar a posição do jogador atual
-        std::cout << "Jogador " << jogadorAtual << ", digite a linha (0-2): ";
-        std::cin >> linha;
-        std::cout << "Jogador " << jogadorAtual << ", digite a coluna (0-2): ";
-        std::cin >> coluna;
+        // Solicitar la posición del jugador actual
+        printf("Jugador %c, ingrese la fila (0-2): ", jugadorActual);
+        scanf("%d", &fila);
+        printf("Jugador %c, ingrese la columna (0-2): ", jugadorActual);
+        scanf("%d", &columna);
 
-        // Verificar se a posição é válida
-        if (linha < 0 || linha > 2 || coluna < 0 || coluna > 2 || tabuleiro[linha][coluna] != ' ') {
-            std::cout << "Posição inválida. Tente novamente.\n";
+        // Verificar si la posición es válida
+        if (fila < 0 || fila > 2 || columna < 0 || columna > 2 || tablero[fila][columna] != ' ') {
+            printf("Posición inválida. Inténtelo de nuevo.\n");
             continue;
         }
 
-        // Atualizar o tabuleiro com a jogada do jogador atual
-        tabuleiro[linha][coluna] = jogadorAtual;
+        // Actualizar el tablero con la jugada del jugador actual
+        tablero[fila][columna] = jugadorActual;
 
-        // Verificar se há um vencedor
-        char vencedor = verificarVencedor(tabuleiro);
-        if (vencedor != ' ') {
-            imprimirTabuleiro(tabuleiro);
-            std::cout << "O jogador " << vencedor << " venceu o jogo!\n";
+        // Verificar si hay un ganador
+        char ganador = verificarGanador(tablero);
+        if (ganador != ' ') {
+            imprimirTablero(tablero);
+            printf("¡El jugador %c ha ganado el juego!\n", ganador);
             break;
         }
 
-        // Trocar de jogador
-        jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+        // Verificar si hay un empate (tablero lleno)
+        bool empate = true;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] == ' ') {
+                    empate = false;
+                    break;
+                }
+            }
+            if (!empate) {
+                break;
+            }
+        }
+        if (empate) {
+            imprimirTablero(tablero);
+            printf("¡Empate! No hay más movimientos posibles.\n");
+            break;
+        }
+
+        // Cambiar al siguiente jugador
+        jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
     }
 
     return 0;
