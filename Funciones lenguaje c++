@@ -74,3 +74,38 @@ FUNCIÓN FLOAT = RETORNA.
 
 PARA RETORNAR SE UTILIZA LA PALABRA RETURN Y EL DATO QUE SE QUIERA RETORNAR (EX: RETURN 10;)
 
+
+
+
+#include <iostream>
+ 
+using namespace std;
+ int main(int argc, char *argv[]){
+  
+  
+  int anoAtual, mesAtual, diaAtual , idade_meses;
+  int idade_dias, idade_semanas;
+  int diaNascimento, mesNascimento, anoNascimento;
+     
+     
+  printf("Digite a data de nascimento (dd mm aaaa): ");
+  scanf("%d %d %d", &diaNascimento, &mesNascimento, &anoNascimento);
+  printf ("Informe o ano atual: (dd mm aa)");
+  scanf("%d %d %d",&diaAtual, &mesAtual, &anoAtual);
+    
+  int idade = (anoAtual - anoNascimento;
+  
+  printf("\n Sua idade é: %d ", idade);
+  
+  idade_meses = idade * 12;
+  printf("\nA idade em meses é: %d ", idade_meses);
+     
+  idade_dias = idade * 12 * 30;
+  printf("\nA idade em dias é: %d ", idade_dias);
+     
+  idade_semanas = idade_dias * 52;
+  printf("\nA idade em semanas é: %d ", idade_semanas);
+   
+
+  return 0;
+}
