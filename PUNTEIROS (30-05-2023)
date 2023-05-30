@@ -1,0 +1,73 @@
+/******************************************************************************
+Punteros (C++)
+Un puntero es una variable que almacena la dirección de memoria de un objeto. 
+Los punteros se usan ampliamente en C y C++ para tres propósitos principales: para asignar nuevos objetos en el montón, para pasar funciones a otras funciones.
+
+PONTEIROS: Sirven para apuntar algo en un determinado espacio de mememoria.
+Ejemplo. int *x; no se creo un espacio en la mememoria, solo se creo un punto en la mememoria y luego va a ser llamado.
+& (i comeecial, indica la direción de la varable en la maemoria) - *(PONTEIROS no tiene direción de busqueda, el ya sabe donde esta).
+
+*******************************************************************************/
+#include <stdio.h>
+
+void soma (int *x, int *y){
+    *x = *x+5;
+}
+
+int main()
+{
+    int x = 10, y =11; //variáveis
+    int *z, *w;//ponteiros
+    z = &x;
+    w = &y;
+    soma(z, w); // outra forma de llamar es soma(&x, &y);
+    printf("%d %d ", *z, *w);
+    *z = *z + 1;
+    printf ("%n %d %d ", z, x, y);
+
+    return 0;
+}
+
+/******************************************************************************
+Leia com scanf o ponteiro z.
+*******************************************************************************/
+#include <stdio.h>
+
+void soma (int *x, int *y){
+    *x = *x+5;
+}
+
+int main()
+{
+    int x = 10, y =11; //variáveis
+    int *z, *w;//ponteiros
+    z = &x;
+    w = &y;
+    soma(z, w); // outra forma de llamar es soma(&x, &y);
+    scanf("%d", z);
+    printf("%d %d ", *z, *w);
+    *z = *z + 1;
+    printf ("%n %d %d ", z, x, y);
+    
+    return 0;
+}
+
+/******************************************************************************
+Se crearon unos punteros y unas variables. lo que se imprimio fue el ultimo dato actualozdo (*tt = *x+*y;)
+z no tiene dirección de memoria.
+*******************************************************************************/
+#include <stdio.h>
+
+void soma (int *x, int *y, int *tt){
+    *tt = *x+*y;
+}
+
+int main()
+{
+    int x = 10, y = 11, z = 0; 
+    soma(&x, &y, &z); 
+    printf (" %d ", z);
+    
+    return 0;
+}
+
