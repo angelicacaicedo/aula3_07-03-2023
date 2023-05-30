@@ -75,7 +75,48 @@ FUNCIÓN FLOAT = RETORNA.
 PARA RETORNAR SE UTILIZA LA PALABRA RETURN Y EL DATO QUE SE QUIERA RETORNAR (EX: RETURN 10;)
 
 
+/******************************************************************************
+Criar uma função que receba a data de nascimento de una pessoa.
+retorne a idade em anos desta pessoa
+unsar data de hoje.
 
+*******************************************************************************/
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int calcularIdade(int diaNascimento, int mesNascimento, int anoNascimento) {
+    
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    int anoAtual = 1900 + ltm->tm_year;
+    int mesAtual = 1 + ltm->tm_mon;
+    int diaAtual = ltm->tm_mday;
+
+    int idade = anoAtual - anoNascimento;
+
+    if (mesAtual < mesNascimento || (mesAtual == mesNascimento && diaAtual < diaNascimento)) {
+        idade--;
+    }
+
+    return idade;
+}
+
+int main() {
+    int dia, mes, ano;
+    
+
+    printf("Digite a data de nascimento (dd mm aaaa): ");
+    scanf("%d %d %d", &dia, &mes, &ano);
+    
+    
+    int idade = calcularIdade(dia, mes, ano);
+    
+    printf("A idade atual é: %d anos\n", idade);
+    
+    return 0;
+}
 
 #include <iostream>
  
@@ -94,6 +135,53 @@ using namespace std;
   scanf("%d %d %d",&diaAtual, &mesAtual, &anoAtual);
     
   int idade = (anoAtual - anoNascimento;
+  
+  printf("\n Sua idade é: %d ", idade);
+  
+  idade_meses = idade * 12;
+  printf("\nA idade em meses é: %d ", idade_meses);
+     
+  idade_dias = idade * 12 * 30;
+  printf("\nA idade em dias é: %d ", idade_dias);
+     
+  idade_semanas = idade_dias * 52;
+  printf("\nA idade em semanas é: %d ", idade_semanas);
+   
+
+  return 0;
+}
+
+
+/******************************************************************************
+
+FALTA POR TERMINAR
+*******************************************************************************/
+#include <iostream>
+ 
+using namespace std;
+
+int calculaIdade(int dia, int mes, int ano){
+    int anoAtual =2023, mesAtual=05, diaAtual=29, idade;
+    idade = ((anoAtual*365 + mesAtual*30 + diaAtual)-(ano*365 + mes*30 +  dia))/365;
+    return idade;
+}
+  int idade_dias, idade_semanas;
+  int calculaIdade2(int dia, int mes, int ano){
+      int anoAtual =2023, mesAtual=05, diaAtual=29, idade=0;
+      if(mesAtual >= mes){
+          idade = anoAtual - ano;
+      }else{
+          idade = anoAtual - ano - 1; 
+      }
+  }
+  return idade;
+ 
+int main(){
+    int dia, mes, ano, idade;
+  printf("Digite a data de nascimento dd mm aaaa: ");
+  scanf("%d/%d/%d", &dia, &mes, &ano);
+  
+  idade = calculaIdade(dia, mes, ano);
   
   printf("\n Sua idade é: %d ", idade);
   
