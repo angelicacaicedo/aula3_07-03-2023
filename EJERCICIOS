@@ -150,3 +150,79 @@ int main() {
     return 0;
 }
 
+
+/******************************************************************************
+Utilizando matrizes, crie uma função para leitura.
+Uma funçao para calcular a média. 
+Uma funçao para imprimir as bordas da matriz.
+*******************************************************************************/
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Função para leitura de uma matriz
+vector<vector<int>> ler_matriz() {
+    int linhas, colunas;
+    cout << "Digite o número de linhas da matriz: ";
+    cin >> linhas;
+    cout << "Digite o número de colunas da matriz: ";
+    cin >> colunas;
+    
+    vector<vector<int>> matriz(linhas, vector<int>(colunas));
+    
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            cout << "Digite o elemento da posição (" << i << ", " << j << "): ";
+            cin >> matriz[i][j];
+        }
+    }
+    
+    return matriz;
+}
+
+// Função para calcular a média dos elementos de uma matriz
+double calcular_media(const vector<vector<int>>& matriz) {
+    int total_elementos = 0;
+    int soma_elementos = 0;
+    
+    for (const auto& linha : matriz) {
+        for (int elemento : linha) {
+            soma_elementos += elemento;
+            total_elementos++;
+        }
+    }
+    
+    if (total_elementos > 0) {
+        double media = static_cast<double>(soma_elementos) / total_elementos;
+        return media;
+    } else {
+        return 0;
+    }
+}
+
+// Função para imprimir as bordas de uma matriz
+void imprimir_bordas(const vector<vector<int>>& matriz) {
+    int linhas = matriz.size();
+    int colunas = matriz[0].size();
+    
+    for (int i = 0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            if (i == 0 || i == linhas - 1 || j == 0 || j == colunas - 1) {
+                cout << matriz[i][j] << " ";
+            } else {
+                cout << "  ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    // Exemplo de uso
+    vector<vector<int>> minha_matriz = ler_matriz();
+    double media = calcular_media(minha_matriz);
+    imprimir_bordas(minha_matriz);
+    
+    return 0;
+}
