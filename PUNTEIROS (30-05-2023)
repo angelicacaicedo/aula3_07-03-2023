@@ -101,3 +101,60 @@ int main()
     
     return 0;
 }
+
+#include <bits/stdc++.h> //biblioteca que contém todas as bibliotecas padrão do C++.
+#define TAM 5 //constante `TAM` com valor 5, que representa o tamanho do vetor.
+using namespace std;
+
+//A siguiente funçao (opcao) é definida para exibir uma opção e ler a escolha do usuário.Ela retorna um caractere que representa a opção selecionada.
+char opcao(){
+	char op;
+	printf("\nA - Adicionar\n");
+	printf("I - Imprimir\n");
+	printf("S - Sair\n");
+	scanf(" %c", &op);
+	return op;
+}
+// A funçao (void leitura) ler um valor digitado pelo usuário e é armazenado em um vetor. 
+//Recebe como parâmetro um ponteiro para o vetor em que o valor será armazenado.
+void leitura(int *vet){
+	printf("Digite um valor\n");
+	scanf("%d", vet);
+}
+//A função imprimir(int *vet, int x)` é responsável por imprimir os valores armazenados em o vetor.
+//Recebe como parâmetros um ponteiro para o vetor e um inteiro `x` que representa o número de informações que será impresso.
+void imprimir(int *vet, int x){
+    int i;
+    for(i=0;i<x;i++){
+        printf(" %d ",*vet);
+        vet++;
+    }
+}
+//A função main() é o ponto de entrada do programa.
+int main(){
+    int vetor[TAM], i=0; //As variáveis vetor[TAM] e i, onde vetor é o vetor que armazenará os valores digitados pelo usuário;
+                         //e `i` é um contador inicializado como 0.
+    char op;
+    //O laço do-while é executado repetidamente até que a opção 'S' ou 's' seja escolhida pelo usuário.
+    do {
+    	op = opcao(); //A função opcao() é chamada para exibir o menu e ler a escolha do usuário, que é armazenada na variável `op`.
+		switch(op){ //Em seguida, é utilizado um switch para executar diferentes blocos de código dependendo da opção escolhida pelo usuário.
+			case 'A': //Se a opção for 'A' ou 'a', verifica-se se o contador `i` é menor que `TAM`, ou seja, se ainda há espaço disponível no vetor.
+			          //Se sim, a função leitura() é chamada, passando o endereço do elemento atual do vetor para armazenar o valor digitado pelo usuário. 
+			          //Em seguida, o contador `i` é incrementado. Caso contrário, é exibida a mensagem "Vetor cheio".
+			case 'a':
+				if(i<TAM){
+					leitura(&vetor[i]);
+					i++;
+				} else {
+					printf("Vetor cheio\n");
+				}
+			break;
+			case 'I': //Se for 'I' ou 'i', a função imprimir() é chamada, passando o endereço do primeiro elemento do vetor e o valor de `i` como parâmetros.
+			         //A função percorre o vetor e imprime os valores armazenados.
+			case 'i':
+				imprimir(&vetor[0], i);
+			break;
+		}
+    } while(op!='S'); //Continua até que a opção 'S' ou 's' seja escolhida pelo usuário, momento em que a condição do laço `do-while` é falsa e o programa é encerrado.
+}
