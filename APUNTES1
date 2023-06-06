@@ -113,3 +113,13 @@ WHILE
 DO WHILE.
 VECTORES
 MATRIZES
+
+
+
+/******************************************************************************
+Desenvolva um algoritmo que receba os nomes de times de futebol, quantas vitorias e empates.
+A quantidade de jogos debe ser eqivalente para todos os 20 times.
+Guarde a puntaçao de cada time.
+Imprima em orden de classificaçao baseada nos pontos.
+Como critério de desempate use os gols a favor e contra, nesta orden.
+*******************************************************************************/
