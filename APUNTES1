@@ -123,3 +123,66 @@ Guarde a puntaçao de cada time.
 Imprima em orden de classificaçao baseada nos pontos.
 Como critério de desempate use os gols a favor e contra, nesta orden.
 *******************************************************************************/
+
+
+
+/******************************************************************************
+POO E UMA CLASSES.
+ATRIBUTO = Una persona tiene atributos, como fisicos etc. son caracteristicas
+MÉTODO = Funciones, camina, habla...etc.
+Leia uma data de nacimiento
+Crie um método que receba esta data
+calcule a idade e atribua ao atrubuto.
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+#define DIA 6
+#define MES 6
+#define ANO 2023
+
+class Pessoa {
+    //Atributos pueden ser 3 publico: puede ser accesado en cualquier lugar, privado: solo se puede acceder por la clase... pai:
+    public:
+    string nome;
+    double peso, altura;
+    int idade;
+    
+    //MÉTODO
+    Pessoa(string nomeParaAtribuir){ //Método constructor da classe, garante que todas las perssonas van a recibir un nome.
+        printf("Oba, criamos una pessoa,\n");
+        this -> nome = nomeParaAtribuir;
+    }
+    
+    void qualquerCoisa(){
+        printf("Chamamos um método :D\n");
+        printf("Nome pessoa %s\n", this->nome.c_str());
+        printf("Com idade %d", this->idade);
+        
+        
+    }
+    void calculaIdade(int dia, int mes, int ano){
+        int diaAtual, dias, idade;
+        diaAtual = DIA + MES*30 + ANO*365;
+        dias = dia + mes*30 + ano*365;
+        idade = diaAtual - dias;
+        idade = idade /365;
+        this->idade = idade;
+}
+};
+
+int main(){
+    int dia, mes, ano;
+    string nome;
+    printf("Digite um nome: ");
+    getline(cin, nome, '\n');
+    Pessoa* p;
+    p = new Pessoa(nome);
+    printf("Digite a data de nascimento (DD/MM/AA): ");
+    scanf("%d/%d/%d", &dia, &mes, &ano);
+    p->calculaIdade(dia, mes, ano);
+    //p = new Pessoa();
+    p->qualquerCoisa();
+
+    return 0;
+}
+
