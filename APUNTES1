@@ -186,3 +186,22 @@ int main(){
     return 0;
 }
 
+/******************************************************************************
+Complte o algoritmo abaixo lendo um valor para p.
+Imprima o valor e o endereço hexadecimal correspondente. 
+*******************************************************************************/
+#include <bits/stdc++.h>
+
+int main()
+{
+    int *p;
+    // int x; 
+   // p = &x;
+   p = (int *) malloc(sizeof(int));
+   scanf("%d", p);
+    
+    printf("%d %p", *p, p);
+    
+ 
+    return 0;
+}
