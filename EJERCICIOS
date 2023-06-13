@@ -284,3 +284,45 @@ int main(){
    return 0; 
 }
 
+
+
+/******************************************************************************
+FALTA COMPLETAR.
+Faça um algoritmo que use vetores
+Tenha uma funçao de leitura que receba como parametro o vetor por ponteiro.
+leia todos os valores
+Outra funçao de impressã que imprima todos os valores.
+*******************************************************************************/
+#include <iostream>
+
+using namespace std;
+
+void letVetor(int * vetor, int tamano){
+    for (int i = 0; i < tamano; i ++){
+        printf("Digite o valor do valor %d: ", i);
+        scanf("%d", vetor[i]);
+    }
+}
+void impVetor(const int* vetor, int tamano){
+    printf("Valores do vetor");
+    for (int i = 0; i < tamano; i ++){
+        printf("%d", vetor[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    int tamano;
+    printf("Digite o tamaho do vetor: ");
+    scanf("%d", &tamano);
+    
+    int*vetor=new int[tamano];
+    
+    letVetor(vetor, tamano);
+    impVetor(vetor, tamano);
+    
+    delete[] vetor;
+
+    return 0;
+}
