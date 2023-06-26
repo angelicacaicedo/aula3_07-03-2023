@@ -369,3 +369,70 @@ int main()
 
     return 0;
 }
+
+***********************************************************************************************************************
+Desenvolva um algoritmo que receba os nomes de times de futebol,
+quantas vitórias (3 pontos), empates (1 ponto), quantidade de gols pró e contra.
+A quantidade de jogos deve ser equivalente para todos os 20 times, ou seja, todos contra todos, mas o jogo do time AxB é igual ao jogo do time BXA, então leia apenas 1 jogo para estes casos.
+Guarde a pontuação de cada time.
+Imprima em ordem de classificação baseada nos pontos e como critério de
+desempate use os gols a favor e conta, nesta ordem.
+
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <algorithm>
+#include <cstring>
+
+struct Equipo {
+    char nome[50];
+    int vitorias;
+    int empates;
+    int gols_pro;
+    int gols_contra;
+    int pontos;
+};
+
+bool compararEquipos(const Equipo& equipo1, const Equipo& equipo2) {
+    if (equipo1.pontos != equipo2.pontos)
+        return equipo1.pontos > equipo2.pontos;
+    if (equipo1.gols_pro != equipo2.gols_pro)
+        return equipo1.gols_pro > equipo2.gols_pro;
+    return equipo1.gols_contra < equipo2.gols_contra;
+}
+
+int main() {
+    const int numEquipos = 20;
+    std::vector<Equipo> equipos(numEquipos);
+
+    // Leitura dos dados de cada equipo
+    for (int i = 0; i < numEquipos; ++i) {
+        std::cout << "Equipo " << i + 1 << ":\n";
+        printf("Nombre: ");
+        scanf("%s", equipos[i].nome);
+        printf("Victorias: ");
+        scanf("%d", &equipos[i].vitorias);
+        printf("Empates: ");
+        scanf("%d", &equipos[i].empates);
+        printf("Goles a favor: ");
+        scanf("%d", &equipos[i].gols_pro);
+        printf("Goles en contra: ");
+        scanf("%d", &equipos[i].gols_contra);
+        equipos[i].pontos = equipos[i].vitorias * 3 + equipos[i].empates;
+    }
+
+    // Ordena os equipos de acordo com a classificação
+    std::sort(equipos.begin(), equipos.end(), compararEquipos);
+
+    // Imprime a classificação
+    std::cout << "\nClassificación:\n";
+    printf("==============================\n");
+    printf("%-4s | %-15s | %-7s | %-7s | %-7s\n", "Pos", "Equipo", "Puntos", "Goles a Favor", "Goles en Contra");
+    printf("-------------------------------\n");
+    for (int i = 0; i < numEquipos; ++i) {
+        printf("%-4d | %-15s | %-7d | %-13d | %-15d\n", i + 1, equipos[i].nome, equipos[i].pontos, equipos[i].gols_pro, equipos[i].gols_contra);
+    }
+    printf("==============================\n");
+
+    return 0;
+}
